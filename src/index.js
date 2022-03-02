@@ -1,11 +1,11 @@
 const express = require('express');
 const path = require('path');
+const methodOverride = require('method-override');
 const handlebars = require('express-handlebars');
 const hbs = handlebars.create({extname: '.hbs'});
 const morgan = require('morgan');
 const app = express();
 const port = 3000;
-
 const route = require('./routes');
 const db = require('./config/db');
 // Connect to DB
@@ -30,6 +30,7 @@ db.connect();
 // 2: thư viện trong js: XMLHttpRequest, fetch, axios
 // static
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
 app.use(express.urlencoded({
   extended:true
 }));
