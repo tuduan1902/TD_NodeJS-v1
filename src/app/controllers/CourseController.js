@@ -35,8 +35,17 @@ class CourseController {
     update(req, res, next){
         Course.updateOne({_id: req.params.id}, req.body)
             .then(() => res.redirect('/me/stored/courses'))
-            .catch(next)
-   }
+            .catch(next);
+    }
+   // [DELETE] /course/:id
+    destroy(req, res, next){
+       /*Course.deleteOne({_id: req.params.id})
+        .then(() => res.redirect('back'))
+        .catch(next);*/
+        console.log('Tu Duan');
+    }
+   
 }
+
 
 module.exports = new CourseController;
