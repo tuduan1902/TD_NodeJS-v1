@@ -6,8 +6,10 @@ const hbs = handlebars.create({extname: '.hbs'});
 const morgan = require('morgan');
 const app = express();
 const port = 3000;
+const SortMiddleware = require('./app/middlewares/SortMiddleware');
 const route = require('./routes');
 const db = require('./config/db');
+
 // Connect to DB
 db.connect();
 // request chứa những thông tin liên quan tới yêu cầu gửi đi
@@ -35,6 +37,10 @@ app.use(express.urlencoded({
   extended:true
 }));
 app.use(express.json());
+
+// Custom middlewares
+app.use(SortMiddleware);
+
 //HTTP Logger
 //app.use(morgan('combined'));
 // Template engine

@@ -5,6 +5,8 @@ class MeController {
     // [GET] /me/stored/courses
     storedCourses(req, res, next) {
 
+        res.json(res.local._sort);
+
         Promise.all([Course.find({}), Course.countDocumentsDeleted()])
             .then(([courses,deletedCount]) =>
                 res.render('me/stored-courses', {
