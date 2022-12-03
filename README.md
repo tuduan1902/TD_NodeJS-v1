@@ -1,1 +1,1 @@
-# Build Rest full API with Nodejs using ExpressJs freamwork and NoSQL is Mongodb
+# Build Rest full API with Nodejs using ExpressJs framework and NoSQL is Mongodb
